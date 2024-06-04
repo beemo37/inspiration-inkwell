@@ -1,0 +1,77 @@
+:imagesdir: images/asciidoc
+:icons: font
+= Asciidoc参考手册
+:toc-title: 目录
+:toc:
+
+== 目录
+
+在需要插入目录的位置编写：
+[source,asciidoc]
+----
+:toc:
+----
+
+image:toc.png[]
+
+=== 目录标题
+
+目录标题默认为``Table of Contents``，如果想要修改，那么需要设置属性：
+[source,asciidoc]
+---
+:toc-title: 目录
+:toc:
+---
+
+image:toc-title.png[]
+
+== 超链接
+
+[source,bash]
+----
+-- 基本语法
+link:www.baidu.com[]
+
+-- 显示链接名称
+link:www.baidu.com[百度]
+
+-- 打开新浏览器窗口访问
+link:www.baidu.com[^]
+link:www.baidu.com[百度, window=_blank]
+ 
+----
+
+== 图标ICON（font模式）
+
+官方参考文档：link:https://docs.asciidoctor.org/asciidoc/latest/macros/icons-font/[^]
+
+ICON网站：link:https://fontawesome.com/v4/icons/[^]
+
+首先需要在文档最上方添加属性
+
+[source,bash]
+----
+:icons: font
+----
+
+之后便可以添加图标
+[source,bash]
+----
+-- 基本语法
+icon:<图标名称或路径>[<属性>]，如icon:heart[]
+
+----
+
+=== 属性
+
+- size：图标尺寸，必须在属性的第一个位置，取值1x（默认）, 2x, 3x, 4x, 5x, lg, fw。分别表示1~5倍，lg（约1.5倍）, fw(约1x)
+- rotate：旋转角度，取值90, 180, 270
+- flip：翻转模式，取值horizontal, vertical
+
+效果如下：
+
+* 盾牌图标：icon:shield[]（``\icon:shield[]``）
+* 2倍图标：icon:shield[2x]（``\icon:shield[2x]``)
+* 90度旋转: icon:shield[rotate=90]（``\icon:shield[rotate=90]``)
+* 垂直翻转: icon:shield[flip=vertical]（``\icon:shield[flip=vertical]``)
+* 水平翻转: icon:shield[flip=horizontal]（``\icon:shield[flip=horizontal]``)

@@ -1,0 +1,77 @@
+<!-- omit from toc -->
+# IntelliJ IDEA使用参考
+
+- [根据缩写进行代码补全](#根据缩写进行代码补全)
+  - [Live Template](#live-template)
+  - [Postfix Completion](#postfix-completion)
+
+
+## 根据缩写进行代码补全
+
+具体形式有两种，一是直接输入缩写后，直接给出代码补全，如：
+```java
+// 输入sout，则会生成
+System.out.println();
+// 输入psvm，则会生成
+public static void main(String[] args) {
+    ...
+}
+```
+另一种是输入对象、变量等，在其后输入`.缩写`，有点像调用方法，之后针对对象、变量等进行相关代码补全，如：
+```java
+List<String> list = new ArrayList<>();
+// 输入list.for则会生成
+for (String s : list) {
+    ...      
+}
+```
+
+第一种方式叫做`Live Template`（即时模板），第二种方式叫做`Postfix Completion`（后缀补全）。
+
+### Live Template
+
+1. 进入`Settings`，依次点击`Editor` -> `Live Templates`，在右侧窗口中点击`+`，选择`1. Live Template`。
+
+<img src="images/intellij/live-template1.png" width=50% />
+
+2. 在输入框中填写以下内容：
+
+- Abbreviation： 缩写，如ann（Assert Not Null的首字母）
+- Description：模板的描述，会展示在提示窗口中
+- Template Text：模板内容，即缩写表示的内容，支持变量，可参照`Java`分组中的内置缩写。
+
+<img src="images/intellij/live-template2.png" width=50% />
+
+3. 点击下方`Define`按钮，选择想要在哪些文件以及哪些条件下支持该关键字，我这里选择`Java`，之后点击`OK`。
+
+<img src="images/intellij/live-template3.png" width=50% />
+
+4. 在相应的位置输入缩写后，点击<kbd>Table</kbd>键就可以自动生成完整语句了。
+
+输入缩写：  
+<img src="images/intellij/live-template4.png" width=50% />
+
+生成完整语句：  
+<img src="images/intellij/live-template5.png" width=50% />
+
+### Postfix Completion
+
+1. 进入`Settings`，依次点击`Editor` -> `General` -> `Postfix Completion`，在右侧窗口中点击`+`，选择`Java`。
+
+<img src="images/intellij/postfix-completion1.png" width=50% />
+
+2. 在输入框中填写以下内容：
+- key： 缩写，如ann（Assert Not Null的首字母）
+- 最下方输入框：模板内容，即缩写表示的内容。使用`$EXPR$`来指代目标对象
+
+<img src="images/intellij/postfix-completion2.png" width=50%/>
+
+3. 点击`OK`后完成配置
+
+4. 在相应的位置输入`变量.缩写`后，点击<kbd>Table</kbd>键就可以自动生成完整语句了。
+
+<img src="images/intellij/postfix-completion3.png" width=50%/>
+
+<img src="images/intellij/postfix-completion4.png" width=50%/>
+
+
