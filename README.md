@@ -19,6 +19,7 @@
 
 ## 数据库
 
+- [Oracle](docs/db/oracle.md)
 - 可视化客户端
   - [PLSQL Developer](docs/db/plsql_developer.md)
 
