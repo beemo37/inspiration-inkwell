@@ -14,7 +14,7 @@
 
 ![](images/dbeaver/new_driver1.gif)
 
-1. 新建OceanBase连接
+2. 新建OceanBase连接
 
     在最左侧`数据库导航`窗口中右键鼠标，选择`创建` -> `连接`，之后在弹出的窗口中搜索`OceanBase`，选择第一步创建的`OceanBase for Oracle`驱动，点击下一步，之后填写正确的JDBC连接、用户名以及密码；再点击`编辑驱动设置`，点击`库`选项卡，点击`找到类`，选择`com.alipay.oceanbase.jdbc.Driver`，之后点击“确定“即可。
 
