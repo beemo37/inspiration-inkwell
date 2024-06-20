@@ -12,6 +12,7 @@
 
 - [mockito](docs/backend/unittest/mockito.md)
 - [Jackson](docs/backend/jackson.md)
+- [SnakeYaml](docs/backend/snakeyaml.md)
 
 ## 前端
 
