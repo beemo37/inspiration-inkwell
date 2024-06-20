@@ -1,7 +1,11 @@
 <!-- omit from toc -->
 # Mermaid
 
-Mermaid是一个基于JavaScript的绘图工具，很多网站或软件都可以对其进行渲染，如`语雀`、`Notion`、`GitLab`等。
+Mermaid是一个基于JavaScript的绘图工具，很多网站或软件都可以对其进行渲染，如`语雀`、`Notion`、`GitHub`等。
+
+甚至`GitHub`还对其有增强，比如放大，缩小，平移等
+
+![](images/mermaid-github.png)
 
 [官方文档](https://mermaid.js.org/intro/)
 
