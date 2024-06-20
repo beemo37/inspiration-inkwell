@@ -42,6 +42,9 @@
 
 - [LLM](docs/llm/llm.md)
   
+## 工具
+
+- [Mermaid](docs/tools/mermaid.md)
 ## 杂项
 
 - [杂项](docs/miscellaneous/index.md)
