@@ -135,3 +135,43 @@ classDiagram
 
 A "0..*" --|> "1"B
 ```
+
+
+### 时序图
+
+时序图由关键字`sequenceDiagram`指定，具体写法如下：
+
+```
+sequenceDiagram
+ModuleA ->> ModuleB: 调用订单作废接口
+ModuleB ->> 数据库: 查询订单作废配置
+ModuleB ->> 数据库: 查询平台接口
+ModuleB -->> ModuleB: 检查是否需要调用第三方接口进行作废
+ModuleB -->> ModuleB: 拼装请求数据
+ModuleB ->> 第三方平台: 发送HTTP作废请求
+第三方平台 ->> ModuleB: 返回作废结果
+ModuleB ->> ModuleA: 解析并返回作废结果
+```
+
+```mermaid
+sequenceDiagram
+ModuleA ->> ModuleB: 调用订单作废接口
+ModuleB ->> 数据库: 查询订单作废配置
+ModuleB ->> 数据库: 查询平台接口
+ModuleB -->> ModuleB: 检查是否需要调用第三方接口进行作废
+ModuleB -->> ModuleB: 拼装请求数据
+ModuleB ->> 第三方平台: 发送HTTP作废请求
+第三方平台 ->> ModuleB: 返回作废结果
+ModuleB ->> ModuleA: 解析并返回作废结果
+```
+
+#### 线与箭头
+
+* `->` 没有箭头的实线
+* `-->` 没有箭头的虚线
+* `->>` 前方有箭头的实线
+* `-->>` 前方有箭头的虚线
+* `-x` 末端带有十字的实线（实验下来是前端不是末端）
+* `--x` 末端带有十字的虚线（实验下来是前端不是末端）
+* `-)` 末端带有开放箭头的实线（表示异步）（实验下来是前端不是末端）
+* `--)` 末端带有开放箭头的虚线（表示异步）（实验下来是前端不是末端）
