@@ -4,6 +4,7 @@
 - [根据缩写进行代码补全](#根据缩写进行代码补全)
   - [Live Template](#live-template)
   - [Postfix Completion](#postfix-completion)
+- [`java: Compilation failed: internal java compiler error`的解决办法](#java-compilation-failed-internal-java-compiler-error的解决办法)
 
 
 ## 根据缩写进行代码补全
@@ -75,3 +76,9 @@ for (String s : list) {
 <img src="images/intellij/postfix-completion4.png" width=50%/>
 
 
+## `java: Compilation failed: internal java compiler error`的解决办法
+
+- 可能原因：使用了高版本Java的语法或特性，但是在编译的时使用了低版本进行编译
+- 解决办法：一次点击工具栏的`Settings` ⇨ `Build, Execution, Deployment` ⇨ `Compiler` ⇨ `Java Compiler`，在右侧窗口中修改模块的编译版本为正确的即可。
+
+![alt text](images/intellij/compiler-setting.png)
