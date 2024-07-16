@@ -5,6 +5,7 @@
   - [Live Template](#live-template)
   - [Postfix Completion](#postfix-completion)
 - [`java: Compilation failed: internal java compiler error`的解决办法](#java-compilation-failed-internal-java-compiler-error的解决办法)
+- [Java8下报`java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module xxx`的解决办法](#java8下报javalangclassformaterror-accessible-module-javabase-does-not-opens-javalang-to-unnamed-module-xxx的解决办法)
 
 
 ## 根据缩写进行代码补全
@@ -82,3 +83,15 @@ for (String s : list) {
 - 解决办法：一次点击工具栏的`Settings` ⇨ `Build, Execution, Deployment` ⇨ `Compiler` ⇨ `Java Compiler`，在右侧窗口中修改模块的编译版本为正确的即可。
 
 ![alt text](images/intellij/compiler-setting.png)
+
+## Java8下报`java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module xxx`的解决办法
+
+`Settings`中已经修改为`Java 8`，但是执行时却是Java 17。
+
+解决办法：
+
+`File` -> `Project Structure`，查看`Project`以及`Platform Settings`下`SDKs`的配置，将其改为Java8
+
+![](images/intellij/unnamed-module1.png)
+
+![](images/intellij/unnamed-module2.png)
