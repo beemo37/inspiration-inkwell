@@ -16,6 +16,7 @@
   - [打桩：返回值为空，什么也不做](#打桩返回值为空什么也不做)
   - [打桩：TransactionTemplate#execute](#打桩transactiontemplateexecute)
   - [打桩：TransactionTemplate#executeWithoutResult](#打桩transactiontemplateexecutewithoutresult)
+  - [打桩：返回值是Redisson的RFuture](#打桩返回值是redisson的rfuture)
 - [资料](#资料)
 
 
@@ -325,6 +326,16 @@ doAnswer(invocation -> {
     consumer.accept(null);
     return null;
     }).when(transactionTemplate).executeWithoutResult(any(Consumer.class));
+```
+
+### 打桩：返回值是Redisson的RFuture
+
+```java
+@Mock
+private RLock redissonLock;
+
+when(redissonLock.unlockAsync(anyLong()))
+    .thenReturn(RedissonPromise.newSucceededFuture(null));
 ```
 ## 资料
 
