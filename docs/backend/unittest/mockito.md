@@ -11,6 +11,8 @@
   - [then和do的区别](#then和do的区别)
   - [默认返回值](#默认返回值)
 - [ArgumentCaptor](#argumentcaptor)
+- [配置严格性](#配置严格性)
+  - [修改严格性](#修改严格性)
 - [场景](#场景)
   - [打桩：返回值为空，想做一些事情](#打桩返回值为空想做一些事情)
   - [打桩：返回值为空，什么也不做](#打桩返回值为空什么也不做)
@@ -284,8 +286,50 @@ verify(mockList).add(assertArg(arg -> assertEquals("abc", arg)));
 ```
 
 
+## 配置严格性
 
+Mockito的严格性主要是检查打桩以及校验是否整洁。举例，在方法的开始对`useService`的`list()`方法进行打桩，但是实际上并没有调用该方法，则认为这个打桩是不应该出现的。
 
+Mockito的严格性有三个，对应的枚举类为`org.mockito.quality.Strictness`，值如下所示：
+- STRICT_STUBS：严格模式，定义的打桩等必须被调用，否则会抛出异常。
+- LENIENT：宽松模式，会忽略不被调用的打桩，程序正常执行。
+- WARN：警告模式，会未使用到的打桩打印在控制台，程序正常执行。
+
+`STRICT_STUBS`模式报错示意：
+```bash
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at com.example.service.test._FooTest/com.hd123.rumba.com.example.service.test.FooTest.setup.setup(FooTest.java:62)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+```
+`WARN`模式控制台警告示意：
+```bash
+[MockitoHint] com.example.service.test.FooTest (see javadoc for MockitoHint):
+[MockitoHint] 1. Unused -> at com.example.service.test._FooTest/com.hd123.rumba.com.example.service.test.FooTest.setup(FooTest.java:61)
+```
+
+### 修改严格性
+
+当使用`@ExtendWith(MockitoExtension.class)`时，默认使用严格模式，也是Mockito推荐的模式，这样可以使代码更简洁，避免声明不必要的打桩以及校验。
+
+但是某些情况下，需要更改严格性。比如将打桩标在了`@Setup`中，大多数方法都能使用到此打桩，只是个别方法用不到，此时就需要改变严格性。
+
+方法：通过在测试类上标注`@MockitoSettings`注解来修改。
+```
+@ExtendWith(MockitoExtension.class)
+// 修改为WARN或LENIENT
+@MockitoSettings(strictness = Strictness.WARN)
+public class FooTest {
+  ...
+}
+```
 
 ## 场景
 
