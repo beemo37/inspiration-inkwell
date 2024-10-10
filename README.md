@@ -29,6 +29,7 @@
 ## 文档
 
 - [Asciidoc](docs/text-tool/asciidoc.adoc)
+- [Markdown](docs/text-tool/markdown.md)
 
 ## IDE
 
