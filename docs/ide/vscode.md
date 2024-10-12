@@ -6,6 +6,10 @@
 ## 快捷键
 
 - 指令面板：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>p</kbd>
+- 软换行：<kbd>Alt</kbd> + <kbd>z</kbd>
+- 打开预览：
+  - 在新页面打开预览：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
+  - 在当前页面侧边打开预览：<kbd>Ctrl</kbd> + <kbd>k</kbd>，之后再单独点击<kbd>v</kbd>
 
 ## 插件
 
