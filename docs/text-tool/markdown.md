@@ -10,11 +10,11 @@ Admonitions用于标记文档中的特别信息，如提示、警告、重要信
 可以使用HTML + CSS的方式来构建一个Admonition，示例以及效果如下所示：
 
 ```markdown
-<div style="background-color: #FFFFCC; padding: 10px;">
+<div style="background-color: #FFFFCC; padding: 10px; margin-bottom: 10px">
   <strong>💡 注意:</strong> 这是一个提示信息。
 </div>
 ```
 
-<div style="background-color: #FFFFCC; padding: 10px;">
+<div style="background-color: #FFFFCC; padding: 10px; margin-bottom: 10px">
   <strong>💡 注意:</strong> 这是一个提示信息。
 </div>

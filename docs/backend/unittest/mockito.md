@@ -77,14 +77,25 @@ class MyTest {
 }
  ```
 
- - 使用`MockitoAnnotations.openMocks(this)`
+ - 使用`MockitoAnnotations
 
+mockito5：
 ```java
 class Test {
 
     @BeforeEach
     void setup() {
         MockitoAnnotations.openMocks(this);
+    } 
+}
+```
+旧版本：
+```java
+class Test {
+
+    @BeforeEach
+    void setup() {
+        MockitoAnnotations.initMocks(this);
     } 
 }
 ```
