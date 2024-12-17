@@ -75,3 +75,34 @@ icon:<图标名称或路径>[<属性>]，如icon:heart[]
 * 90度旋转: icon:shield[rotate=90]（``\icon:shield[rotate=90]``)
 * 垂直翻转: icon:shield[flip=vertical]（``\icon:shield[flip=vertical]``)
 * 水平翻转: icon:shield[flip=horizontal]（``\icon:shield[flip=horizontal]``)
+
+== 标题不显示编号
+
+=== 全局禁用
+
+配置``sectnums``为``false``，如：
+
+[source,adoc]
+----
+:sectnums:
+
+== 显示编号的标题1
+
+== 显示编号的标题2
+
+:sectnums!:
+
+== 不显示编号的标题1
+
+== 不显示编号的标题2
+----
+
+=== 当前禁用
+
+在标题上标注``unnumbered``，如：
+
+[source,adoc]
+----
+[unnumbered]
+== 此标题不会显示编号
+----
