@@ -22,10 +22,10 @@
 ## 数据库
 
 - [Oracle](docs/db/oracle.md)
+- [PostgreSQL](docs/db/postgresql.md)
 - 可视化客户端
   - [PLSQL Developer](docs/db/plsql_developer.md)
   - [DBeaver](docs/db/dbeaver.md)
-
 
 ## 文档
 
