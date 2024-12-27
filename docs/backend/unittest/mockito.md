@@ -2,6 +2,7 @@
 # mockito参考手册
 
 - [mock](#mock)
+  - [mock静态方法](#mock静态方法)
 - [spy](#spy)
 - [使用注解](#使用注解)
 - [stub](#stub)
@@ -48,6 +49,31 @@ import static org.mockito.Mockito.*;
 
 List<String> mockList = mock();
 
+```
+
+
+### mock静态方法
+
+3.4.0版本之后支持mock静态方法，方式如下：
+
+1. 引入`mockito-inline``
+```xml
+  <dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-inline</artifactId>
+    <scope>test</scope>
+  </dependency>
+```
+
+2. 使用`mockito.mockStatic`进行mock，官方示例：
+```java
+ assertEquals("foo", Foo.method());
+ try (MockedStatic mocked = mockStatic(Foo.class)) {
+ mocked.when(Foo::method).thenReturn("bar");
+ assertEquals("bar", Foo.method());
+ mocked.verify(Foo::method);
+ }
+ assertEquals("foo", Foo.method());
 ```
 
 ## spy
@@ -394,4 +420,5 @@ when(redissonLock.unlockAsync(anyLong()))
 ```
 ## 资料
 
-[Baeldung Mockito Guide](Mockito+Guide.pdf)
+- [Baeldung Mockito Guide](Mockito+Guide.pdf)
+- [Mockito官方文档](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
