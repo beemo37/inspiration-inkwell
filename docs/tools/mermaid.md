@@ -1,4 +1,19 @@
-<!-- omit from toc -->
+<!-- TOC -->
+
+- [Mermaid](#mermaid)
+    - [语法](#%E8%AF%AD%E6%B3%95)
+        - [通用](#%E9%80%9A%E7%94%A8)
+        - [类图](#%E7%B1%BB%E5%9B%BE)
+            - [方向](#%E6%96%B9%E5%90%91)
+            - [可见性](#%E5%8F%AF%E8%A7%81%E6%80%A7)
+            - [关系](#%E5%85%B3%E7%B3%BB)
+                - [语法](#%E8%AF%AD%E6%B3%95)
+                - [数量](#%E6%95%B0%E9%87%8F)
+            - [抽象类](#%E6%8A%BD%E8%B1%A1%E7%B1%BB)
+        - [时序图](#%E6%97%B6%E5%BA%8F%E5%9B%BE)
+            - [线与箭头](#%E7%BA%BF%E4%B8%8E%E7%AE%AD%E5%A4%B4)
+
+<!-- /TOC -->
 # Mermaid
 
 Mermaid是一个基于JavaScript的绘图工具，很多网站或软件都可以对其进行渲染，如`语雀`、`Notion`、`GitHub`等。
@@ -71,10 +86,9 @@ class Cat {
     + name: String
 }
 
+
 Animal <|-- Cat
 ```
-
-
 
 #### 可见性
 
@@ -136,6 +150,18 @@ classDiagram
 A "0..*" --|> "1"B
 ```
 
+#### 抽象类
+
+使用`<<abstract>>`关键字指定抽象类，示例：
+```mermaid
+classDiagram
+class Animal {
+  <<abstract>>
+  
+  + name: String
+  + eat(): void
+}
+```
 
 ### 时序图
 
