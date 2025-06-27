@@ -111,10 +111,8 @@ for (String s : list) {
 2. 进入 `Version Control` -> `Configuration`
 3. 找到 `When files are created:` 选项，将其设置为 `Ask`（询问），就会每次询问；其他两个选项分别是不添加(Do not add)，以及每次都添加(Add silently)
 
+![](images/intellij/when-files-are-created.png)
+
+
 这样，下次新建文件时，IDEA 就会再次弹出是否添加到暂存区的提示。
-
-![](images/intellij/when-file-are-created.jpg)
-
-
-
 
