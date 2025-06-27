@@ -7,7 +7,6 @@
 - [`java: Compilation failed: internal java compiler error`的解决办法](#java-compilation-failed-internal-java-compiler-error的解决办法)
 - [Java8下报`java.lang.ClassFormatError accessible: module xxx does not "opens xxx" to unnamed module xxx`的解决办法](#java8下报javalangclassformaterror-accessible-module-xxx-does-not-opens-xxx-to-unnamed-module-xxx的解决办法)
 
-
 ## 根据缩写进行代码补全
 
 具体形式有两种，一是直接输入缩写后，直接给出代码补全，如：
@@ -95,3 +94,27 @@ for (String s : list) {
 ![](images/intellij/unnamed-module1.png)
 
 ![](images/intellij/unnamed-module2.png)
+
+## 新建文件不询问是否添加到暂存区的解决办法
+
+### 问题描述
+
+以前在 IntelliJ IDEA 中新建文件时，通常会弹出提示，询问是否将新文件添加到 Git 的暂存区（Stage changes）。如果选择"确认"，文件会自动加入暂存区，文件名变为绿色；如果选择"否"，文件不会加入暂存区，文件名为红色。
+
+但有一天，发现新建文件后 IDEA 不再弹出是否添加到暂存区的提示，所有新建文件默认都是红色（未暂存），每次都需要手动右键选择"Git" -> "Add" 或使用快捷键 <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> 添加到暂存区，才能变为绿色。
+
+### 解决办法
+
+出现这种情况，通常是因为不小心关闭了"添加到暂存区"提示。
+
+1. 打开 `Settings`
+2. 进入 `Version Control` -> `Configuration`
+3. 找到 `When files are created:` 选项，将其设置为 `Ask`（询问），就会每次询问；其他两个选项分别是不添加(Do not add)，以及每次都添加(Add silently)
+
+这样，下次新建文件时，IDEA 就会再次弹出是否添加到暂存区的提示。
+
+![](images/intellij/when-file-are-created.jpg)
+
+
+
+
