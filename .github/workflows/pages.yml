@@ -26,10 +26,14 @@ jobs:
 
       # 这一步就是"只发一篇"的关键：站点目录里只放这一个文件，
       # 仓库里其余的笔记不会被复制进去。
+      #
+      # 文件名决定网址。拷成 macos-lan.html，地址就是：
+      #   https://beemo37.github.io/inspiration-inkwell/macos-lan.html
+      # 站点根（.../inspiration-inkwell/）不放东西，会返回 404。
       - name: 组装站点（只放这一篇）
         run: |
           mkdir -p _site
-          cp docs/miscellaneous/macos-local-network-permission.html _site/index.html
+          cp docs/miscellaneous/macos-local-network-permission.html _site/macos-lan.html
           touch _site/.nojekyll
           echo "站点内容："
           find _site -type f

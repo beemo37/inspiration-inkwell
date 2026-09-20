@@ -1,7 +1,7 @@
 # macOS 本地网络权限导致内网访问异常 —— 完整排查记录
 
 > 本文所有域名、IP 地址、网段与配置标识符均已替换为示例值，不影响结论与操作步骤。
-> 网页版（带排版）：<https://beemo37.github.io/inspiration-inkwell/>
+> 网页版（带排版）：<https://beemo37.github.io/inspiration-inkwell/macos-lan.html>
 
 
 > 排查日期：2026-09-20
