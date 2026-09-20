@@ -1,0 +1,50 @@
+name: 发布文档站
+
+# 只在网页源文件本身变动时重新发布，改笔记不触发。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/miscellaneous/macos-local-network-permission.html'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 这一步就是"只发一篇"的关键：站点目录里只放这一个文件，
+      # 仓库里其余的笔记不会被复制进去。
+      - name: 组装站点（只放这一篇）
+        run: |
+          mkdir -p _site
+          cp docs/miscellaneous/macos-local-network-permission.html _site/index.html
+          touch _site/.nojekyll
+          echo "站点内容："
+          find _site -type f
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
